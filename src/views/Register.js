@@ -9,7 +9,7 @@ const Register = ({ navigation }) => {
 
   const cancelRegister = () => {
     Alert.alert("Registration cancelled");
-    nagivation.navigate("Home");
+    navigation.navigate("Home");
   };
 
   const registerAccount = () => {
@@ -32,36 +32,41 @@ const Register = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.conatiner}>
+    <View style={styles.container}>
       <Text style={styles.heading}>Register Account</Text>
-      <TextInput //
-        style={styles.input}
-        onChangeText={setUserName}
-        value={userName}
-      />
-      <Text style={styles.label}>Enter User Name</Text>
-      <TextInput //
-        style={styles.input}
-        onChangeText={setPassword}
-        value={password}
-        secureTextEntry={true}
-      />
-      <Text style={styles.label}>Enter password</Text>
-      <TextInput //
-        style={styles.input}
-        onChangeText={setPasswordConfirm}
-        value={passwordConfirm}
-        secureTextEntry={true}
-      />
-      <Text style={styles.label}>confirm password</Text>
 
-      <TouchableHighlight onPress={registerAccount} underlayColor="#000000">
-        <Text style={styles.button}>Register</Text>
-      </TouchableHighlight>
+      <View style={{ flex: 2, justifyContent: "center" }}>
+        <TextInput //
+          style={styles.input}
+          onChangeText={setUserName}
+          value={userName}
+        />
+        <Text style={styles.label}>Enter User Name</Text>
+        <TextInput //
+          style={styles.input}
+          onChangeText={setPassword}
+          value={password}
+          secureTextEntry={true}
+        />
+        <Text style={styles.label}>Enter password</Text>
+        <TextInput //
+          style={styles.input}
+          onChangeText={setPasswordConfirm}
+          value={passwordConfirm}
+          secureTextEntry={true}
+        />
+        <Text style={styles.label}>Confirm password</Text>
+      </View>
 
-      <TouchableHighlight onPress={cancelRegister} underlayColor="#HH0000">
-        <Text stle={style.button}>Cancel</Text>
-      </TouchableHighlight>
+      <View style={{ flex: 1, flexDirection: "row", alignItems: "flex-end" }}>
+        <TouchableHighlight onPress={registerAccount} underlayColor="#000000" style={{ flex: 1 }}>
+          <Text style={styles.button}>Register</Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight onPress={cancelRegister} underlayColor="#HH0000" style={{ flex: 1 }}>
+          <Text style={styles.button}>Cancel</Text>
+        </TouchableHighlight>
+      </View>
     </View>
   );
 };
@@ -69,8 +74,34 @@ const Register = ({ navigation }) => {
 export default Register;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    justifyContent: "space-between",
+  },
   heading: {
-    fontSize: 26,
-    textShadowRadius: 5,
+    textAlignVertical: "center",
+    textAlign: "center",
+    fontSize: 30,
+    fontWeight: "bold",
+    flex: 1,
+  },
+  input: {
+    borderWidth: 2,
+    borderRadius: 5,
+    height: 40,
+    padding: 5,
+  },
+  label: {
+    paddingBottom: 20,
+  },
+  button: {
+    borderWidth: 2,
+    borderRadius: 5,
+    height: 40,
+    textAlignVertical: "center",
+    textAlign: "center",
+    marginVertical: 10,
+    flexBasis: "auto",
   },
 });

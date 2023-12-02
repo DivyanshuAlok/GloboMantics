@@ -12,7 +12,7 @@ const Header = () => {
     console.log("toggle");
     if (isLoggedIn) {
       AsyncStorage.setItem("userLoggedIn", "none", (error, result) => {
-        setIsLoggedIn("false");
+        setIsLoggedIn(false);
         setLoggedUser("");
         Alert.alert("user Logged out");
       });

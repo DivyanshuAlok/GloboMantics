@@ -23,7 +23,7 @@ const Login = ({ navigation }) => {
     } else {
       AsyncStorage.getItem("userLoggedIn", (error, result) => {
         if (result !== "none") {
-          console.log("someone is logged in");
+          console.log("someone has logged in");
           Alert.alert("Someone has logged in");
           navigation.navigate("Home");
         } else {
@@ -54,31 +54,34 @@ const Login = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>Log in</Text>
-      <TextInput //
-        style={styles.input}
-        onChangeText={setUserName}
-        value={userName}
-      />
-      <Text style={styles.label}>Enter User Name</Text>
-      <TextInput //
-        style={styles.input}
-        onChangeText={setPassword}
-        value={password}
-        secureTextEntry={true}
-      />
-      <Text style={styles.label}>Enter password</Text>
+      <View style={{ flex: 4 }}>
+        <TextInput //
+          style={styles.input}
+          onChangeText={setUserName}
+          value={userName}
+        />
+        <Text style={styles.label}>Enter User Name</Text>
+        <TextInput //
+          style={styles.input}
+          onChangeText={setPassword}
+          value={password}
+          secureTextEntry={true}
+        />
+        <Text style={styles.label}>Enter password</Text>
 
-      <View style={{ flexDirection: "row", width: "100%", height: 40 }}>
-        <TouchableHighlight onPress={loginUser} underlayColor="#000000">
-          <Text style={styles.button}>Login</Text>
-        </TouchableHighlight>
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <TouchableHighlight onPress={loginUser} underlayColor="#000000" style={{ flex: 1, paddingRight: 2 }}>
+            <Text style={styles.button}>Login</Text>
+          </TouchableHighlight>
 
-        <TouchableHighlight onPress={cancelLogin} underlayColor="#HH0000">
-          <Text style={styles.button}>Cancel</Text>
-        </TouchableHighlight>
+          <TouchableHighlight onPress={cancelLogin} underlayColor="#HH0000" style={{ flex: 1, paddingLeft: 2 }}>
+            <Text style={styles.button}>Cancel</Text>
+          </TouchableHighlight>
+        </View>
       </View>
-      <TouchableHighlight onPress={createAccount} underlayColor="#HH0000">
-        <Text style={styles.button}>Register Account</Text>
+
+      <TouchableHighlight onPress={createAccount} underlayColor="#HH0000" style={{ flex: 1 }}>
+        <Text style={styles.buttonLong}>Register Account</Text>
       </TouchableHighlight>
     </View>
   );
@@ -88,19 +91,21 @@ export default Login;
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
     flex: 1,
+    padding: 20,
+    justifyContent: "space-around",
   },
   heading: {
-    height: 200,
     textAlignVertical: "center",
     textAlign: "center",
     fontSize: 30,
     fontWeight: "bold",
+    flex: 3,
   },
   input: {
     borderWidth: 2,
     borderRadius: 5,
+    height: 40,
   },
   label: {
     paddingBottom: 20,
@@ -112,7 +117,14 @@ const styles = StyleSheet.create({
     textAlignVertical: "center",
     textAlign: "center",
     marginVertical: 10,
-    alignSelf: "stretch",
-    width: "100%",
+    flexBasis: "auto",
+  },
+  buttonLong: {
+    borderWidth: 2,
+    borderRadius: 5,
+    height: 40,
+    textAlignVertical: "center",
+    textAlign: "center",
+    marginVertical: 10,
   },
 });
