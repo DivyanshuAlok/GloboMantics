@@ -56,10 +56,20 @@ const Blog = ({ navigation }) => {
     getPost();
   }, []);
 
+  //navigation
   const chooseBlog = (blogID) => {
     navigation.navigate("BlogDetail", { blogId: blogID });
   };
 
+  //we are getting the data here from api
+  //data is in Array
+  //flatlist on this array
+  //BlogItem is the component being rendered
+  //we have a funtional component for navigation, we will be passing that to BlogItem
+  //as BlogItem is a not a default componenet and so it wont have navigation in it (Blog is main and has navigation)
+  //the final list renderd should have a button that would navigate to seperate page
+
+  // a functional componenet for navigation (chooseBlog) defined in the Parent component (Blog) is passes to a child component (BlogItem) as a prop, so that when the items are rendered with the structure defined in BlogItem containing a button (which will give more info about Blog), this button could use the navigation prop (from stack navigator) of parent component and navigate to BlogDetail
   return (
     <View>
       {blogLoaded && (
@@ -68,7 +78,13 @@ const Blog = ({ navigation }) => {
             data={blogList}
             keyExtractor={(item) => item.ID.toString()}
             renderItem={({ item }) => {
-              <BlogItem id={item.ID} title={item.title} imageSrc={item.featured_image} excerpt={item.excerpt} choosePost={chooseBlog} />;
+              <BlogItem
+                id={item.ID}
+                title={item.title} //
+                imageSrc={item.featured_image}
+                excerpt={item.excerpt}
+                choosePost={chooseBlog}
+              />;
             }}
           />
         </View>
