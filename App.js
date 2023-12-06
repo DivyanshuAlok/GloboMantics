@@ -9,6 +9,8 @@ import HomeScreen from "./src/views/HomeScreen";
 import Register from "./src/views/Register";
 import Login from "./src/views/Login";
 import Header from "./src/components/Header";
+import Blog from "./src/views/Blog";
+import BlogDetail from "./src/views/BlogDetail";
 
 const stack = createNativeStackNavigator();
 
@@ -20,6 +22,16 @@ const App = () => {
           name="About"
           component={About}
           options={{ title: "About US" }}
+        />
+        <stack.Screen //
+          name="Blog"
+          component={Blog}
+          options={{ title: "Blog" }}
+        />
+        <stack.Screen //
+          name="BlogDetail"
+          component={BlogDetail}
+          options={{ title: "BlogDetails" }}
         />
         <stack.Screen //
           name="Home"

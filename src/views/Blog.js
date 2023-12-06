@@ -24,14 +24,16 @@ const BlogItem = (props) => {
     >
         <img src=${props.imageSrc}/>
         <h1>${props.title}</h1>
+        ${props.id}
         ${props.excerpt}
     </a>
     `,
   };
+  7;
 
   return (
     <View style={{ borderBottomWidth: 2, borderBottomColor: "#000000", borderStyle: "solid" }}>
-      <RenderHTML source={blogItems} renderers={renderersProps} contentWidth={width} />
+      <RenderHTML source={blogItems} renderersProps={renderersProps} contentWidth={width} />
     </View>
   );
 };
@@ -42,9 +44,10 @@ const Blog = ({ navigation }) => {
 
   const getPost = async () => {
     try {
-      const response = await fetch('https"//public-api.wordpress');
+      const response = await fetch("https://public-api.wordpress.com/rest/v1.1/sites/martinmelodev.wordpress.com/posts");
       const globo = await response.json();
       setBlogList(Array.from(globo.posts));
+      console.log(typeof blogList);
     } catch (error) {
       console.error(error);
     } finally {
@@ -77,16 +80,20 @@ const Blog = ({ navigation }) => {
           <FlatList
             data={blogList}
             keyExtractor={(item) => item.ID.toString()}
-            renderItem={({ item }) => {
+            renderItem={({ item }) => (
               <BlogItem
                 id={item.ID}
                 title={item.title} //
                 imageSrc={item.featured_image}
                 excerpt={item.excerpt}
                 choosePost={chooseBlog}
-              />;
-            }}
+              />
+            )}
           />
+          <Text>asef</Text>
+          {/* {blogList.map((x) => (
+            <Text>{x.ID}</Text>
+          ))} */}
         </View>
       )}
       {!blogLoaded && (

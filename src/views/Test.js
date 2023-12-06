@@ -1,14 +1,15 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-
-const Test = () => {
-  return (
-    <View>
-      <Text>Test</Text>
-    </View>
-  );
+var totalMoney = function (n) {
+  let sum = 0;
+  let loopCount = 0;
+  while (n) {
+    let x = 1 + loopCount;
+    while (n && x <= 7 + loopCount) {
+      sum = sum + x;
+      x++;
+      n--;
+    }
+    loopCount++;
+  }
+  return sum;
 };
-
-export default Test;
-
-const styles = StyleSheet.create({});
+console.log(totalMoney(20));
