@@ -6,10 +6,10 @@ This react-native project corresponds to a [Pluralsight course on React Native F
 
 ## Register.js & Login.js
 
-1. Use of async storge
-2. Basic Login and Register funtionality
+1. Use of async storage
+2. Basic Login and Register functionality
 3. Flex styling
-4. Add styling to touchableHilight intead of <Text> inside
+4. Add styling to touchableHilight instead of <Text> inside
 
 ## Header.js HomeScreen.js Hero.js Menu.js
 
