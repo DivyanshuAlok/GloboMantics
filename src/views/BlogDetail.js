@@ -14,7 +14,7 @@ const BlogDetail = ({ route, navigation }) => {
   // const dimention = useWindowDimensions();
   // console.log(dimention.width);
 
-  const { blogId } = route.params;
+  const blogId = route.params.blogId;
 
   const getPost = async () => {
     try {
