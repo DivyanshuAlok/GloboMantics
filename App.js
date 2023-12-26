@@ -11,6 +11,7 @@ import Login from "./src/views/Login";
 import Header from "./src/components/Header";
 import Blog from "./src/views/Blog";
 import BlogDetail from "./src/views/BlogDetail";
+import Quiz from "./src/views/Quiz";
 
 const stack = createNativeStackNavigator();
 
@@ -27,6 +28,11 @@ const App = () => {
           name="Blog"
           component={Blog}
           options={{ title: "Blog" }}
+        />
+        <stack.Screen //
+          name="Quiz"
+          component={Quiz}
+          options={{ title: "Quiz" }}
         />
         <stack.Screen //
           name="BlogDetail"
