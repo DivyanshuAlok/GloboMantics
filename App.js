@@ -38,7 +38,7 @@ const App = () => {
         <stack.Screen //
           name="QuizFinish"
           component={QuizFinish}
-          options={{ title: "QuizFinish" }}
+          options={{ headerShown: false }}
         />
         <stack.Screen //
           name="BlogDetail"

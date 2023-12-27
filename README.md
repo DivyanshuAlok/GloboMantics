@@ -1,6 +1,6 @@
-This react-native project corresponds to a [Pluralsight course on React Native Fundamentals by Reggie Dawson](https://www.pluralsight.com/courses/fundamentals-react-native) 
+This react-native project corresponds to a [Pluralsight course on React Native Fundamentals by Reggie Dawson](https://www.pluralsight.com/courses/fundamentals-react-native)
 
->Course Description : React Native is a powerful framework that allows you to build mobile apps using JavaScript. This course will teach you to build a complete mobile app using the tools available in React Native.
+> Course Description : React Native is a powerful framework that allows you to build mobile apps using JavaScript. This course will teach you to build a complete mobile app using the tools available in React Native.
 
 # Components in this project and their features
 
@@ -29,49 +29,42 @@ This react-native project corresponds to a [Pluralsight course on React Native F
 6. useEffect
 7. render html
 
+## Quiz.js
+
+1. Call Back component (update score)
+2. Use of promises (check JS repo too)
+
 ```javascript
 const dimention = useWindowDimensions();
 console.log(dimention.width);
 
 //same as
 
-const {width} = useWindowDimensions();
+const { width } = useWindowDimensions();
 console.log(width);
 ```
 
 ```javascript
 {
-   blogList.map((x) => (
-            <Text>{x.ID}</Text>
-   ))
+  blogList.map((x) => <Text>{x.ID}</Text>);
 }
 
 // check the difference in the internal variable
 
-<FlatList
-   data={blogList}
-   renderItem={({ item }) => (
-     <Text>{item.ID}</Text>
-   )}
- />
-
+<FlatList data={blogList} renderItem={({ item }) => <Text>{item.ID}</Text>} />;
 ```
 
 ```javascript
-const Blog = ({navigation})=>{
-   const blogId=7;
-   navigation.navigate("BlogDetail",{blogID:blogId})
-}
+const Blog = ({ navigation }) => {
+  const blogId = 7;
+  navigation.navigate("BlogDetail", { blogID: blogId });
+};
 
 // next component
 
-const BlogDetail = ({route,navigation})=>{
-   const {blogID} = route.props
-   //or
-   //const blogId = route.params.blogId;
-}
-
+const BlogDetail = ({ route, navigation }) => {
+  const { blogID } = route.props;
+  //or
+  //const blogId = route.params.blogId;
+};
 ```
-
-
-
