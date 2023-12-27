@@ -109,4 +109,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "dimgrey",
   },
+  disabled: {
+    margin: 10,
+    borderWidth: 2,
+    padding: 10,
+    borderRadius: 5,
+    borderBottomRightRadius: 50,
+    borderBottomLeftRadius: 50,
+    alignItems: "center",
+    backgroundColor: "dimgrey",
+  },
 });

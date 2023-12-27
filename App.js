@@ -12,6 +12,7 @@ import Header from "./src/components/Header";
 import Blog from "./src/views/Blog";
 import BlogDetail from "./src/views/BlogDetail";
 import Quiz from "./src/views/Quiz";
+import QuizFinish from "./src/views/QuizFinish";
 
 const stack = createNativeStackNavigator();
 
@@ -33,6 +34,11 @@ const App = () => {
           name="Quiz"
           component={Quiz}
           options={{ title: "Quiz" }}
+        />
+        <stack.Screen //
+          name="QuizFinish"
+          component={QuizFinish}
+          options={{ title: "QuizFinish" }}
         />
         <stack.Screen //
           name="BlogDetail"
